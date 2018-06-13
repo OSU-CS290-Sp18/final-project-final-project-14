@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <title>Lampwix</title>
+
+    <!-- This is a stylesheet that includes the font you should use: Roboto -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" media="screen">
+
+    <!-- This script incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
+    <script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" defer></script>
+
+    <script src="index.js" charset="utf-8" defer></script>
+
+  </head>
+
+  <body>
+
+    <header>
+      <!-- The <i> tag below includes the bullhorn icon from Font Awesome -->
+      <a href="#"><h1 class="site-title"><i class="fab fa-gripfire"></i> LAMPWIX</h1></a>
+
+      <nav class="navbar">
+        <ul class="navlist">
+          <li class="navitem navlink active"><a href="#">Home</a></li>
+          <li class="navitem navlink"><a href="#">Classes</a></li>
+        </ul>
+      </nav>
+    </header>
+<!--
+    <main class= "search-container">
+        <h2>Find your class...<br>
+        <li class="navitem navbar-search" id="class-search-tool">
+        <input type="text" id="navbar-search-input">
+        <button type="button" id="navbar-search-button"><i class="fas fa-search"></i></button></h2>
+      </li>
+
+  <main class="class-page">
+
+ <div class="title-container">
+   <h2>Available Classes:</h2>
+ </div>
+
+ {{#each class}}
+   <div class="class-card">
+     <a href="/class/{{@key}}">{{class_name}}</a>
+   </div>
+ {{/each}}
+
+  </main>
+-->
+
+<main>
+  <div class="class post">
+    <div class="class name">{class}</div>
+    <div class="instructor name">{instructor}</div>
+    <div class="post content">{post}</div>
+    <div class="post author">{author}</div>
+    <!--This button makes replies-->
+    <button class="post reply"></button>
+  </div>
+
+  <!--each reply is a child of the class post-->
+  <div class="reply post">
+    <div class="post content">{reply}</div>
+  <!--If author == instructor this should be the first child-->
+    <div class="post author">{author}</div>
+  <!--If author == instructor grad should be hidden -->
+    <div class="reply-grade">{grade}</div>
+</div>
+</main>

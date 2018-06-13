@@ -1,0 +1,21 @@
+<main>
+<!-- This page contains the posts and replies for every class-->
+
+  <div class="class post">
+    <div class="class name">{class}</div>
+    <div class="instructor name">{instructor}</div>
+    <div class="post content">{post}</div>
+    <div class="post author">{author}</div>
+    <!--This button makes replies-->
+    <button class="post reply"></button>
+  </div>
+
+  <!--each reply is a child of the class post-->
+  <div class="reply post">
+    <div class="post content">{reply}</div>
+  <!--If author == instructor this should be the first child-->
+    <div class="post author">{author}</div>
+  <!--If author == instructor grad should be hidden -->
+    <div class="reply-grade">{grade}</div>
+</div>
+</main>
