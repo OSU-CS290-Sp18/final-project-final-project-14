@@ -142,6 +142,44 @@ a:focus {
   margin-bottom: 20px;
 }
 
+/*This section handles replies*/
+.reply-rank {
+  text-align:right;
+  margin-right: 10px;
+}
+
+.reply-button {
+  display: block;
+  justify-content: center;
+  width: 90%;
+  text-align: right;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+#post-reply-button{
+  -webkit-border-radius: 14;
+  -moz-border-radius: 14;
+  border-radius: 14px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  background: #adadad;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#post-reply-button:hover {
+  background: #ffa41c;
+  text-decoration: none;
+  color: #343434;
+}
+
+.reply.post-container{
+  margin-top: 0px;
+  padding-top: 20px;
+}
+
 #create-post-button {
   position: fixed;
   right: 30px;
