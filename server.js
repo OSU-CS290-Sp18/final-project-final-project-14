@@ -41,6 +41,35 @@ app.get("/:classNumber/:instructor", function(req, res, next){
 	});
 });
 
+app.post('/:classID/:post', function(req, res, next){
+	var classID = req.params.classID.toLowerCase();
+	var postToUpdate = req.params.post.toLowerCase();
+	if(req.body){
+		var reply = {
+			reply: req.body.content,
+			author: req.body.author,
+			rank: req.body.grade
+		};
+		var addToPost = mongoDB.collection('posts');
+		addToPost.updateOne(
+			{postID:postToUpdate},
+			{push: {replys:reply}},
+			function(err,result){
+				if(err){
+					res.status(500).send("Error creating reply.")
+				}else {
+					if(result.matchedCount>0){
+						res.status(200).end();
+					}else {
+						next();
+					}
+				}
+			}
+		);
+	} else {
+		res.status(400).send("Resuest needs a JSON body with content, author, and grade.")
+});
+
 app.get('*', function (req, res) {
 	res.status(404).render('404');
 });
