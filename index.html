@@ -55,20 +55,20 @@
 
 <main>
   <div class="class post">
-    <div class="class name">{class}</div>
-    <div class="instructor name">{instructor}</div>
-    <div class="post content">{post}</div>
-    <div class="post author">{author}</div>
+    <p class="class-name">{{class}}</p>
+    <p class="instructor">{{instructor}}</p>
+    <p class="content"><br><br>{{post}}</p><br>
+    <p class="author">{{author}}</p><br>
     <!--This button makes replies-->
-    <button class="post reply"></button>
+    <button class="post reply">Reply</button>
   </div>
 
   <!--each reply is a child of the class post-->
   <div class="reply post">
-    <div class="post content">{reply}</div>
+    <p class="content">{{reply}}</p>
   <!--If author == instructor this should be the first child-->
-    <div class="post author">{author}</div>
+    <p class="author">{{author}}</p>
   <!--If author == instructor grad should be hidden -->
-    <div class="reply-grade">{grade}</div>
+    <p class="grade">{{grade}}</p>
 </div>
 </main>

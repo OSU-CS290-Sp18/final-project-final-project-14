@@ -108,13 +108,19 @@ a:focus {
   background-color: #fff;
 }
 
-.post-content {
-  flex: 1 1 80%;
-  margin-left: 10px;
+.class-name{
+  text-align: left;
 }
 
-.post-content p {
-  margin: 0;
+.content {
+  flex: 1 1 80%;
+  margin-left: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+p {
+  display: block;
 }
 
 .post-content .post-attribution {

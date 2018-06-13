@@ -1,0 +1,15 @@
+<main class="class-page">
+
+<!-- This page is the list of all classes available on the website -->
+
+<div class="title-container">
+ <h2>Classes:</h2>
+</div>
+
+{{#each class}}
+ <div class="class">
+   <a href="/class/{{@key}}">{{class_name}}</a>
+ </div>
+{{/each}}
+
+</main>
