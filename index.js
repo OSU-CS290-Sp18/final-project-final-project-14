@@ -1,5 +1,5 @@
 /*
-If anything there is anything that we are not using, such as hide modal
+If there is anything that we are not using, such as hide modal
 buttons, and this code does not match up to what we have please let me know.
 Im doing a lot of guessing here.
 */
