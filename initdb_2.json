@@ -1,0 +1,41 @@
+[
+  {
+    "class": "cs290",
+    "instructor": "RobHess",
+    "post": "CS 290 - Web Development",
+    "author": "Bill Nye",
+    "replies": [{
+        "reply": "This was a great class!",
+        "author": "andy",
+        "grade": "student"
+      },
+      {
+        "reply": "I still have questions about flex boxes!",
+        "author": "james",
+        "grade": "student"
+      }
+    ]
+  },
+  {
+    "class": "cs142",
+    "instructor": "JenniferParham",
+    "post": "CS 290 - Web Development",
+    "author": "Spongebob Squarepants",
+    "replies": [{
+        "reply": "The final was rough, kinda unfair tbh!",
+        "author": "nick",
+        "grade": "student"
+      },
+      {
+        "reply": "It was great! Having a 9am class was rough though!",
+        "author": "patrick",
+        "grade": "student"
+      },
+      {
+        "reply": "Now I know how to flexBox!",
+        "author": "sam",
+        "grade": "student"
+      }
+    ]
+  }
+]
