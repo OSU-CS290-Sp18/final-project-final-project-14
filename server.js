@@ -30,11 +30,11 @@ app.get("/:classNumber/:instructor", function(req, res, next){
 	var classID = req.params.classNumber.toLowerCase();
 	var inst = req.params.instructor.toLowerCase();
 	var classData = mongoDB.collection('classes');
-	classData.find({classID: classID}).toArray(function(err, classPosts){
+	classData.find({classname: classID}).toArray(function(err, classPosts){
 		if(err){
 			res.status(500).send("Error fetching class posts from DB.");
 		} else if(classPosts.length >0){
-			res.status(200).render('classPage', classPosts[0]);
+			res.status(200).render('index', classPosts[0]);
 		} else {
 			next();
 		}
