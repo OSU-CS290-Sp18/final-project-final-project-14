@@ -1,0 +1,22 @@
+<main>
+<!-- This page contains the posts and replies for every class-->
+
+  <article class="post-container">
+    <div class="post-title">
+      <h2 class="class-name">{{class}}</h2>
+      <h2 class="instructor">{{instructor}}</h2>
+    </div>
+    <div class="post-content">
+      <p class="post-text">{{text}}</p>
+      <p class ="post-author">{{author}}</p>
+    </div>
+    <div class="reply-button">
+    <button id="post-reply-button">Reply</button>
+  </div>
+  </article>
+
+    {{#each reply}}
+      {{>replyPost}}
+    {{/each}}
+
+</main>
