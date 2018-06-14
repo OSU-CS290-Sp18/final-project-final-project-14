@@ -2,6 +2,7 @@ var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var posts = require('./initdb')
+var bodyParser = require('body-parser');
 /* var MongoClient = require('mongodb').MongoClient;
 
 var mongoHost = process.env.MONGO_HOST;
@@ -11,7 +12,7 @@ var mongoPassword = process.env.MONGO_PASSWORD;
 var mongoDBName = process.env.MONGO_DB_NAME;
 
 var mongoURL = "mongodb://" + mongoUsername + ":" + mongoPassword + "@" + mongoHost + ":" + mongoPort + "/" + mongoDBName;
-  
+
 var mongoDB = null; */
 
 var app = express();
@@ -20,6 +21,7 @@ var port = process.env.PORT || 3000;
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/',function(req, res, next){
@@ -32,8 +34,9 @@ app.get('/classes', function(req, res, next){
 	});
 });
 
-app.get("/class/:classID", function(req, res, next){
-	var classID = req.params.classNumber.toLowerCase();
+app.get("/search", function(req, res, next){
+	console.log(req.body.searchTerm);
+	var classID = req.body.searchTerm.toLowerCase();
 	/* var classData = mongoDB.collection('class');
 	classData.find({classname: classID}).toArray(function(err, classPosts){
 		if(err){
@@ -45,6 +48,7 @@ app.get("/class/:classID", function(req, res, next){
 		}
 	}); */
 	if(posts[classID]){
+		console.log("Class found");
 		res.status(200).render('classPage', posts[classID]);
 	} else {
 		next()

@@ -55,7 +55,7 @@ function sendReplyInfoToExpress(){
   //this should be all we need.
   request.addEventListener('load', function(event){
     if(event.target.status !== 200){
-      let message = event.target.response;
+      let message = event.target.status;
       alert("Error storing post in database: " + message);
     } else {
       console.log("Post successful! " + message);
@@ -76,6 +76,7 @@ This will pass in to the req argument the search term the user typed in
 the search bar.
 */
 function sendSearchInfoToExpress(){
+  console.log("SEARCHING!!");
   let searchTerm = document.getElementById("navbar-search-input").value.trim();
   let request = new XMLHttpRequest();
   let url = "/search";
@@ -86,14 +87,15 @@ function sendSearchInfoToExpress(){
   });
 
   request.addEventListener('load', function(event){
+    console.log("Returned status: " + event.target.status);
     if(event.target.status !== 200){
-      let message = event.target.response;
+      let message = event.target.status;
       alert("Error, class NOT in database: " + message);
     } else {
       console.log("Class search successful! " + message);
     }
   })
-
+  console.log("Sending request for page " + searchTerm);
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(requestBody);
 }
@@ -127,16 +129,30 @@ send the user provided data to express, and a hide modal button.
 If we instead only have a post reply button that displays a modal and thats
 it, I can get rid of anything extra we dont need.
 */
-window.addEventListener("DOMContentLoaded", function(){
-  let postReplyButton = document.getElementsByClassName("post-reply-button")[0];
-  postReplyButton.addEventListener('click', showModal);
 
-  let modalAcceptButton = document.getElementById("modal-accept-button");
-  modalAcceptButton.addEventListener('click', sendReplyInfoToExpress);
-
-  let modalHideButton = document.getElementById("modal-cancel-button");
-  modalHideButton.addEventListener('click', hideModal);
-
+try{
   let searchBarButton = document.getElementById("navbar-search-button");
   searchBarButton.addEventListener('click', sendSearchInfoToExpress);
-})
+} catch(error) {
+  console.log("Navbar search wasn't on this page, and thats ok! " + error);
+}
+try{
+  let modalAcceptButton = document.getElementById("modal-accept-button");
+  modalAcceptButton.addEventListener('click', sendReplyInfoToExpress);
+} catch (error) {
+  console.log("Modal accept probably not on this page, and thats ok! " + error);
+}
+
+try {
+  let modalHideButton = document.getElementById("modal-cancel-button");
+  modalHideButton.addEventListener('click', hideModal);
+} catch (error) {
+  console.log("Modal cancel probably not on this page, and thats ok! " + error);
+}
+
+try {
+  let postReplyButton = document.getElementsByClassName("post-reply-button")[0];
+  postReplyButton.addEventListener('click', showModal);
+} catch (error) {
+  console.log("post reply button not on this page, and thats ok! " + error);
+}
