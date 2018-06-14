@@ -1,0 +1,32 @@
+{{#if newReply}}
+<button type="button" id="post-reply-button">Reply</button>
+{{/if}}
+
+<div id="modal-backdrop" class="hidden"></div>
+
+<div id="post-reply-modal" class="hidden">
+  <div class="modal-dialog">
+
+    <div class="modal-header">
+      <h3>Post Reply</h3>
+      <button type="button" class="modal-close-button">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="reply-input-element">
+        <label for="reply-text-input">Write your reply here...</label>
+        <textarea id="reply-text-input"></textarea>
+      </div>
+      <div class="reply-input-element">
+        <label for="reply-author-input">Author</label>
+        <input type="text" id="reply-author-input">
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="modal-cancel-button">Cancel</button>
+      <button type="button" class="modal-accept-button">Post Reply</button>
+    </div>
+
+  </div>
+</div>
