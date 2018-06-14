@@ -1,8 +1,8 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
-
-var MongoClient = require('mongodb').MongoClient;
+var posts = require('./initdb')
+/* var MongoClient = require('mongodb').MongoClient;
 
 var mongoHost = process.env.MONGO_HOST;
 var mongoPort = process.env.MONGO_PORT || '27017';
@@ -12,7 +12,7 @@ var mongoDBName = process.env.MONGO_DB_NAME;
 
 var mongoURL = "mongodb://" + mongoUsername + ":" + mongoPassword + "@" + mongoHost + ":" + mongoPort + "/" + mongoDBName;
   
-var mongoDB = null;
+var mongoDB = null; */
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -26,9 +26,15 @@ app.get('/',function(req, res, next){
 	res.status(200).render('main'); //homepage default load
 });
 
+app.get('/classes', function(req, res, next){
+	res.status(200).render('classlistPage', {
+		classes: posts
+	});
+});
+
 app.get("/class/:classID", function(req, res, next){
 	var classID = req.params.classNumber.toLowerCase();
-	var classData = mongoDB.collection('class');
+	/* var classData = mongoDB.collection('class');
 	classData.find({classname: classID}).toArray(function(err, classPosts){
 		if(err){
 			res.status(500).send("Error fetching class posts from DB.");
@@ -37,7 +43,12 @@ app.get("/class/:classID", function(req, res, next){
 		} else {
 			next();
 		}
-	});
+	}); */
+	if(posts[classID]){
+		res.status(200).render('classPage', posts[classID]);
+	} else {
+		next()
+	}
 });
 
 app.post('*', function(req, res, next){
@@ -48,7 +59,7 @@ app.post('*', function(req, res, next){
 			author: req.body.author,
 			rank: req.body.grade
 		};
-		var addToPost = mongoDB.collection('posts');
+		/* var addToPost = mongoDB.collection('posts');
 		addToPost.updateOne(
 			{post:postToUpdate},
 			{$push: {replies:reply}},
@@ -63,7 +74,11 @@ app.post('*', function(req, res, next){
 					}
 				}
 			}
-		);
+		); */
+		if(posts[postToUpdate]){
+			posts[postToUpdate].replies.push(reply);
+			res.status(200).end();
+		}
 	} else {
 		res.status(400).send("Resuest needs a JSON body with content, author, and grade.");
 	}
@@ -73,7 +88,7 @@ app.get('*', function (req, res) {
 	res.status(404).render('404');
 });
 
-MongoClient.connect(mongoURL, function (err, client) {
+/* MongoClient.connect(mongoURL, function (err, client) {
 	if (err) {
 		throw err;
 	}
@@ -81,7 +96,7 @@ MongoClient.connect(mongoURL, function (err, client) {
 	app.listen(port, function () {
 		console.log("== Server listening on port", port);
 	});
-})
+}) */
 
 app.listen(port, function () {
 	console.log("== Server is listening on port", port);
