@@ -1,8 +1,8 @@
 <!--each reply is a child of the class post-->
-<div class="reply post">
-  <p class="post content">{{reply}}</p>
-<!--If author == instructor this should be the first child-->
-  <p class="post author">{{author}}</p>
-<!--If author == instructor grad should be hidden -->
-  <p class="reply-grade">{{grade}}</p>
-</div>
+<article class="reply post-container">
+  <div class="reply post-content">
+    <p class="reply post-text">{{text}}</p>
+    <p class ="reply post-author">{{author}}</p>
+    <p class ="reply-rank">{{rank}}</p>
+  </div>
+</article>
