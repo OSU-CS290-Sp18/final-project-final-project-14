@@ -42,7 +42,7 @@ function sendReplyInfoToExpress(){
 
   let request = new XMLHttpRequest();
   let url = "/addReply";
-  request.open("POST", url);
+  request.open("POST", url, true);
 
   let requestBody = JSON.stringify({
     content: replyContent,
@@ -80,7 +80,7 @@ function sendSearchInfoToExpress(){
   let searchTerm = document.getElementById("navbar-search-input").value.trim();
   let request = new XMLHttpRequest();
   let url = "/search";
-  request.open("GET", url);
+  request.open("POST", url, true);
 
   let requestBody = JSON.stringify({
     searchTerm: searchTerm
