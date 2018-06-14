@@ -34,28 +34,9 @@ app.get('/classes', function(req, res, next){
 	});
 });
 
-/*
-This guy needs to update the DB with the replyContent, replyAuthor that matches
-with the postTitle.
-*/
-app.post("/addReply", function(req, res, next){
-	console.log("===Express got the following req.body: " + req.body);
-	var replyContent = req.body.searchTerm.toLowerCase();
-	var replyAuthor = req.body.searchTerm.toLowerCase();
-	var postTitle = req.body.searchTerm.toLowerCase();
-
-	//This is just here for debug
-	res.status(200);
-});
-
-
-/*
-This guy needs to route the display/render class posts that have the "class" (inside the DB)
-that matches with req.body.searchTerm .
-*/
 app.post("/search", function(req, res, next){
-	console.log("===Express got the following req.body.searchTerm: " + req.body.searchTerm);
-	var classID = req.body.searchTerm.toLowerCase();
+	console.log("searching for:",req.body.searchTerm);
+	var classID = req.body.searchTerm;
 	/* var classData = mongoDB.collection('class');
 	classData.find({classname: classID}).toArray(function(err, classPosts){
 		if(err){
@@ -66,9 +47,16 @@ app.post("/search", function(req, res, next){
 			next();
 		}
 	}); */
-	if(posts[classID]){
+	var classPosts;
+	for( var i=0; i< posts.length; i++){
+		if(posts[i].class == classID){
+			classPosts+=posts[i];
+		}
+	}
+	console.log(classPosts);
+	if(classPosts.length > 0){
 		console.log("Class found");
-		res.status(200).render('classPage', posts[classID]);
+		res.status(200).render('classPage', classPosts);
 	} else {
 		next()
 	}
