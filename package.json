@@ -1,0 +1,31 @@
+{
+  "name": "mongodb-in-people-app",
+  "version": "1.0.0",
+  "description": "Incorporating MongoDB into our application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build:header": "handlebars views/partials/header.handlebars -f public/Header.js",
+    "build:reply": "handlebars views/partials/reply.handlebars -f public/Reply.js",
+    "prestart": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OSU-CS290-Sp18/mongodb.git"
+  },
+  "author": "Collier-Monzo-Plant-Vaughn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OSU-CS290-Sp18/mongodb/issues"
+  },
+  "homepage": "https://github.com/OSU-CS290-Sp18/mongodb#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "mongo": "^0.1.0",
+    "mongodb": "^3.0.10"
+  }
+}

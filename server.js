@@ -26,11 +26,10 @@ app.get('/',function(req, res, next){
 	res.status(200).render('main'); //homepage default load
 });
 
-app.get("/:classNumber/:instructor", function(req, res, next){
+app.get("/class/:classID", function(req, res, next){
 	var classID = req.params.classNumber.toLowerCase();
-	var inst = req.params.instructor.toLowerCase();
-	var classData = mongoDB.collection('classes');
-	classData.find({classID: classID}).toArray(function(err, classPosts){
+	var classData = mongoDB.collection('class');
+	classData.find({classname: classID}).toArray(function(err, classPosts){
 		if(err){
 			res.status(500).send("Error fetching class posts from DB.");
 		} else if(classPosts.length >0){
@@ -39,6 +38,34 @@ app.get("/:classNumber/:instructor", function(req, res, next){
 			next();
 		}
 	});
+});
+
+app.post('*', function(req, res, next){
+	if(req.body){
+		var postToUpdate = req.body.postTitle;
+		var reply = {
+			reply: req.body.content,
+			author: req.body.author,
+			rank: req.body.grade
+		};
+		var addToPost = mongoDB.collection('posts');
+		addToPost.updateOne(
+			{post:postToUpdate},
+			{$push: {replies:reply}},
+			function(err,result){
+				if(err){
+					res.status(500).send("Error creating reply.")
+				}else {
+					if(result.matchedCount>0){
+						res.status(200).end();
+					}else {
+						next();
+					}
+				}
+			}
+		);
+	} else {
+		res.status(400).send("Resuest needs a JSON body with content, author, and grade.")
 });
 
 app.get('*', function (req, res) {
