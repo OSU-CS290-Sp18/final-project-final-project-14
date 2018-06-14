@@ -1,0 +1,12 @@
+<main id="classContainer">
+<!-- This page contains the posts and replies for every class-->
+
+  {{>classInfo}}
+
+  <main id="repliesContainer">
+    {{#each replies}}
+      {{>replyPost}}
+    {{/each}}
+  </main>
+
+</main>

@@ -17,6 +17,10 @@ function getInstructorFromURL(){
 }
 
 
+function getGrade(){
+
+}
+
 /*
 This function is going to get the class number and instructor from the urlbar,
 then open an HTTP request to express at this route:
@@ -28,7 +32,7 @@ IDs "content", "author", "grade", which can be changed.
 This will then be formed into a JSON body with the following structure:
 
 {
-  content: replyContent,
+  reply: replyContent,
   author: replyAuthor,
   grade: replyGrade
 }
@@ -39,9 +43,9 @@ to handle the /:className/:instructor/addReply route.
 
 From there the data can be posted to the mondoDB
 */
-function sendPostInfoToExpress(){
-  let replyContent = document.getElementById("content").value.trim();
-  let replyAuthor = document.getElementById("author").value.trim();
+function sendPostInfoToExpress(event){
+  let replyContent = event.target;
+  let replyAuthor = document.getElementById("reply-author-input").value.trim();
   let replyGrade = document.getElementById("grade").value.trim();
   let classNumber = getClassNumberFromURL();
   let instructor = getInstructorFromURL();
@@ -51,7 +55,7 @@ function sendPostInfoToExpress(){
   request.open("POST", url);
 
   let requestBody = JSON.stringify({
-    content: replyContent,
+    reply: replyContent,
     author: replyAuthor,
     grade: replyGrade
   });
@@ -62,7 +66,7 @@ function sendPostInfoToExpress(){
   request.addEventListener('load', function(event){
     if(event.target.status !== 200){
       let message = event.target.response;
-      alert("Errpr storing photo in database: " + message);
+      alert("Error storing photo in database: " + message);
     } else {
       console.log("Post successful! " + message);
     }
@@ -70,6 +74,25 @@ function sendPostInfoToExpress(){
 
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(requestBody);
+}
+
+function showModal(event){
+  let modalBackDrop = document.getElementById("modal-backdrop");
+  let modalElement = document.getElementById("post-reply-modal");
+
+  modalBackDrop.classList.remove("hidden");
+  modalElement.classList.remove("hidden");
+
+  let modalAcceptButton = document.getElementsByClassName("modal-accept-butto");
+  modalAcceptButton.addEventListener('click', sendPostInfoToExpress);
+}
+
+function hideModal(){
+  let modalBackDrop = document.getElementById("modal-backdrop");
+  let modalElement = document.getElementById("post-reply-modal");
+
+  modalBackDrop.classList.add("hidden");
+  modalElement.classList.add("hidden");
 }
 
 /*
@@ -81,12 +104,14 @@ If we instead only have a post reply button that displays a modal and thats
 it, I can get rid of anything extra we dont need.
 */
 window.addEventListener("DOMContentLoaded", function(){
-  let postReplyButton = document.getElementsByClassName("post reply")[0];
+  let postReplyButton = document.getElementById("post-reply-button");
   postReplyButton.addEventListener('click', showModal);
 
-  let modalAcceptButton = document.getElementById("modal accept");
-  modalAcceptButton.addEventListener('click', sendPostInfoToExpress);
 
-  let modalHideButton = document.getElementById("modal hide");
-  modalHideButton.addEventListener('click', hideModal);
+
+  let modalCancelButton = document.getElementsByClassName("modal-cancel-button");
+  modalCancelButton.addEventListener('click', hideModal);
+
+  let modalCloseButton = document.getElementsByClassName("modal-close-button");
+  modalCloseButton.addEventListener('click', hideModal);
 })
