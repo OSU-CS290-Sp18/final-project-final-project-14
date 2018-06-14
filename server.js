@@ -26,15 +26,14 @@ app.get('/',function(req, res, next){
 	res.status(200).render('main'); //homepage default load
 });
 
-app.get("/:classNumber/:instructor", function(req, res, next){
+app.get("/class/:classID", function(req, res, next){
 	var classID = req.params.classNumber.toLowerCase();
-	var inst = req.params.instructor.toLowerCase();
-	var classData = mongoDB.collection('classes');
+	var classData = mongoDB.collection('class');
 	classData.find({classname: classID}).toArray(function(err, classPosts){
 		if(err){
 			res.status(500).send("Error fetching class posts from DB.");
 		} else if(classPosts.length >0){
-			res.status(200).render('index', classPosts[0]);
+			res.status(200).render('classPage', classPosts[0]);
 		} else {
 			next();
 		}
