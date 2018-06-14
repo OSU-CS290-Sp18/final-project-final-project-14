@@ -29,10 +29,70 @@
     ]
   },
   {
-    "class": "cs142",
+    "class": "cs290",
+    "instructor": "Rob Hess",
+    "post": "American Dream Tonight",
+    "content": "Hey everyone! I decided to waive lecture today. who wants to go get pizza tonight at American Dream?",
+    "author": "Bill Nye",
+    "replies": [{
+        "reply": "Hell yeah!",
+        "author": "Nicholas",
+        "grade": "student"
+      },
+      {
+        "reply": "Is this why you're the favorite?",
+        "author": "Luyou",
+        "grade": "instructor"
+      },
+      {
+        "reply": "Count me in!",
+        "author":"Nora",
+        "grade": "student"
+      },
+      {
+        "reply": "What time?",
+        "author": "Nani",
+        "grade": "student"
+      }
+    ]
+  },
+  {
+    "class": "cs290",
+    "instructor": "Luyou Zhang",
+    "post": "How was Online CS?",
+    "content": "Does anyone have any feedback for me? How could the class be made better for future terms?",
+    "author": "Bill Nye",
+    "replies": [{
+        "reply": "Literally be Rob Hess",
+        "author": "Josh",
+        "grade": "student"
+      },
+      {
+        "reply": "Change your first name to Rob, your last name to Hess, and be awesome",
+        "author": "Jack",
+        "grade": "student"
+      },
+      {
+        "reply": "Okay, I get it, Rob is the favorite. Any real feedback?",
+        "author":"Luyou",
+        "grade": "instructor"
+      },
+      {
+        "reply": "Be Rob",
+        "author": "Jamie",
+        "grade": "student"
+      }
+    ]
+  },
+
+
+
+
+  {
+    "class": "cs162",
     "instructor": "Jennifer Parham-Mocello",
     "post": "CS 290 - Web Development",
-    "content": "Hey! I heard abouut this other class called Web Dev, cs290. Has anyone taken it? What did you think?",
+    "content": "Hey! I heard about this other class called Web Dev, cs290. Has anyone taken it? What did you think?",
     "author": "Spongebob Squarepants",
     "replies": [{
         "reply": "The final was rough, kinda unfair tbh!",
@@ -57,7 +117,39 @@
     ]
   },
   {
-    "class": "cs271",
+    "class": "cs162",
+    "instructor": "Yong J Bakos",
+    "post": "Final Exam time",
+    "content": "What time is the final exam?",
+    "author": "Scrooge McDuck",
+    "replies": [{
+        "reply": "Never!!! hahahaha",
+        "author": "Ally",
+        "grade": "student"
+      },
+      {
+        "reply": "Wait, didn't we already have a final?",
+        "author": "Anthony",
+        "grade": "student"
+      },
+      {
+        "reply": "Thought we were done with finals. I feel done with finals...",
+        "author": "Aaron",
+        "grade": "student"
+      }
+      {
+        "reply": "It's at 2000 in LINC 210. Bring a pencil",
+        "author": "Yong",
+        "grade": "Instructor"
+      }
+    ]
+  },
+
+
+
+
+  {
+    "class": "cs290",
     "instructor": "Rob Hess",
     "post": "I'm Confused",
     "content": "What's a data structure? We're at the end of the term and honestly I didn't
@@ -96,6 +188,31 @@
       {
         "reply": "F",
         "author": "Roberto",
+        "grade": "student"
+      }
+    ]
+  }
+
+  
+  {
+    "class": "cs271",
+    "instructor": "Stephen Redfield",
+    "post": "Final Exam",
+    "content": "The final exam will have extra credit. It is also no longer at 7:30am, and has been moved to 2pm on Tuesday",
+    "author": "Stephen",
+    "replies": [{
+        "reply": "Yes! Friday finals suck!",
+        "author": "Sam",
+        "grade": "student"
+      },
+      {
+        "reply": "Someone hacked my account. The exam is still on Friday at 7:30am. No EC will be offered. Who would do this?",
+        "author": "Stephen",
+        "grade": "instructor"
+      },
+      {
+        "reply": "lol",
+        "author": "Patrick",
         "grade": "student"
       }
     ]
