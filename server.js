@@ -41,10 +41,9 @@ app.get("/:classNumber/:instructor", function(req, res, next){
 	});
 });
 
-app.post('/:classID/:post', function(req, res, next){
-	var classID = req.params.classID.toLowerCase();
-	var postToUpdate = req.params.post.toLowerCase();
+app.post('*', function(req, res, next){
 	if(req.body){
+		var postToUpdate = req.body.postTitle;
 		var reply = {
 			reply: req.body.content,
 			author: req.body.author,
@@ -52,8 +51,8 @@ app.post('/:classID/:post', function(req, res, next){
 		};
 		var addToPost = mongoDB.collection('posts');
 		addToPost.updateOne(
-			{postID:postToUpdate},
-			{push: {replys:reply}},
+			{post:postToUpdate},
+			{$push: {replies:reply}},
 			function(err,result){
 				if(err){
 					res.status(500).send("Error creating reply.")
