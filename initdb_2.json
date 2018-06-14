@@ -1,39 +1,101 @@
 [
   {
     "class": "cs290",
-    "instructor": "RobHess",
-    "post": "CS 290 - Web Development",
+    "instructor": "Rob Hess",
+    "post": "A look back on the term",
+    "content": "What did everyone think of the class? I had a lot of fun designing webpages!",
     "author": "Bill Nye",
     "replies": [{
-        "reply": "This was a great class!",
-        "author": "andy",
+        "reply": "This was a great class! Tbh I was hoping for spiders though...",
+        "author": "Andy",
         "grade": "student"
       },
       {
-        "reply": "I still have questions about flex boxes!",
-        "author": "james",
+        "reply": "I still have questions about flex boxes! do the boxes need to hit the gym for a few weeks first?",
+        "author": "James",
+        "grade": "student"
+      },
+      {
+        "reply": "All of this feedback is great! I would also really appreciate if
+          you all could follow my sinsta: There's a lot of sick hacking stuff I do there!",
+        "author":"Rob",
+        "grade": "instructor"
+      },
+      {
+        "reply": "I didn't like it when Rob kept calling me 'dee-NICE' but it was a lot of fun",
+        "author": "Denise",
         "grade": "student"
       }
     ]
   },
   {
     "class": "cs142",
-    "instructor": "JenniferParham",
+    "instructor": "Jennifer Parham-Mocello",
     "post": "CS 290 - Web Development",
+    "content": "Hey! I heard abouut this other class called Web Dev, cs290. Has anyone taken it? What did you think?",
     "author": "Spongebob Squarepants",
     "replies": [{
         "reply": "The final was rough, kinda unfair tbh!",
-        "author": "nick",
+        "author": "Nick",
         "grade": "student"
       },
       {
         "reply": "It was great! Having a 9am class was rough though!",
-        "author": "patrick",
+        "author": "Patrick",
         "grade": "student"
       },
       {
         "reply": "Now I know how to flexBox!",
-        "author": "sam",
+        "author": "Sam",
+        "grade": "student"
+      }
+      {
+        "reply": "Make sure you take it from Rob: he's super fun!",
+        "author": "Jen",
+        "grade": "Instructor"
+      }
+    ]
+  },
+  {
+    "class": "cs271",
+    "instructor": "Rob Hess",
+    "post": "I'm Confused",
+    "content": "What's a data structure? We're at the end of the term and honestly I didn't
+      show up to any of the classes or turn in any of the assignments. Someone please help me thnx! <3",
+    "author": "Nicky Airhead",
+    "replies": [{
+        "reply": "God Dammit",
+        "author": "Rob",
+        "grade": "instructor"
+      },
+      {
+        "reply": "lol",
+        "author": "Patrick",
+        "grade": "student"
+      },
+      {
+        "reply": "Press F to pay respects",
+        "author": "Sam",
+        "grade": "student"
+      }
+      {
+        "reply": "F",
+        "author": "George",
+        "grade": "student"
+      }
+      {
+        "reply": "f",
+        "author": "Denzel",
+        "grade": "student"
+      }
+      {
+        "reply": "FFF",
+        "author": "Robby",
+        "grade": "student"
+      }
+      {
+        "reply": "F",
+        "author": "Roberto",
         "grade": "student"
       }
     ]
